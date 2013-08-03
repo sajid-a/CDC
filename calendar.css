@@ -1,0 +1,70 @@
+BODY
+{
+}
+TABLE.Calendar
+{
+    BORDER-RIGHT: thin inset;
+    BORDER-TOP: thin inset;
+    MARGIN-TOP: 1px;
+    BORDER-LEFT: thin inset;
+    BORDER-BOTTOM: thin inset
+}
+TR.Header
+{
+    FONT-SIZE: 10pt;
+    COLOR: white;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: gray;
+    TEXT-ALIGN: center
+}
+INPUT.Button
+{
+    WIDTH: 80px
+}
+TD.NormalDay
+{
+    FONT-SIZE: 10pt;
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+TD.SelectedDay
+{
+    FONT-SIZE: 10pt;
+    COLOR: white;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #000080;
+    TEXT-ALIGN: center
+}
+TABLE.overall
+{
+    BORDER-RIGHT: thin groove;
+    BORDER-TOP: thin groove;
+    BORDER-LEFT: thin groove;
+    BORDER-BOTTOM: thin groove
+}
+BODY A
+{
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+BODY A:visited
+{
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    TEXT-DECORATION: none
+}
+BODY A:hover
+{
+    COLOR: black;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: silver;
+    TEXT-DECORATION: none
+}
+TD.Title
+{
+    FONT-SIZE: 10pt;
+    FONT-FAMILY: Arial
+}

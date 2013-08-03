@@ -1,0 +1,85 @@
+VALID EMAIL ID
+
+
+##SELECT * FROM people WHERE email NOT LIKE '%_@__%.__%'
+
+
+
+
+##CREATE FUNCTION dbo.vaValidEmail(@EMAIL varchar(100))
+                                    
+RETURNS bit as
+
+BEGIN     
+
+DECLARE @bitRetVal as Bit
+
+IF (@EMAIL	<> '' AND @EMAIL NOT LIKE '_%@__%.__%')
+	 SET @bitRetVal = 0  -- Invalid
+ELSE 
+	SET @bitRetVal = 1   -- Valid
+
+RETURN @bitRetVal
+
+END 
+
+
+
+
+##^[a-zA-Z0-9._%-]+@[a-zA-Z0-9._%-]+\.[a-zA-Z]{2,4}$
+
+
+
+
+
+##
+SQL> desc email
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMAIL_ID                                           NUMBER
+ EMAIL_ADDRESS                                      VARCHAR2(128)
+
+
+SQL> select * from email;
+
+  EMAIL_ID EMAIL_ADDRESS
+---------- ----------------------------------------
+         1 NEIL@GMAIL.COM
+         2 JOE@UTAH.GOV
+         3 lower_name@lower.org
+         4 bad_address@missing_domaindotorg
+
+
+SQL> @qry2
+SQL> column email_address format a40
+SQL> column substr_result format a30
+SQL> SELECT  email_address
+  2       ,  regexp_substr(email_address,'[a-zA-Z0-9._%-]+@[a-zA-Z0-9._%-]+\.[a-zA-Z]{2,4}') substr_result
+  3    FROM  email
+  4  /
+
+EMAIL_ADDRESS                            SUBSTR_RESULT
+---------------------------------------- ------------------------------
+NEIL@GMAIL.COM                           NEIL@GMAIL.COM
+JOE@UTAH.GOV                             JOE@UTAH.GOV
+lower_name@lower.org                     lower_name@lower.org
+bad_address@missing_domaindotorg
+
+
+_____
+SQL> column email_address format a40
+SQL> column substr_result format a30
+SQL> SELECT  email_address
+  2    FROM  email
+  3   WHERE  REGEXP_LIKE (email_address, '[a-zA-Z0-9._%-]+@[a-zA-Z0-9._%-]+\.[a-zA-Z]{2,4}');
+
+EMAIL_ADDRESS
+----------------------------------------
+NEIL@GMAIL.COM
+JOE@UTAH.GOV
+lower_name@lower.org
+
+
+http://www.regular-expressions.info/email.html
+
+that linking wala site i was tokin abt: http://www.tutorialsweb.com/sql/working-with-mysql.htm#Creating%20Tables

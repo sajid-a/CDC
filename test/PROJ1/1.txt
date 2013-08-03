@@ -1,0 +1,56 @@
+create table Patient
+(
+Pid varchar(6),
+Pfname varchar(10),
+Plname varchar(10),
+Pdob datetime,
+Paddr varchar(20),
+Pcity varchar(10),
+Pstate varchar(12),
+Ppin varchar(6),
+Pbldgrp varchar(4),'
+Pgender varchar(6),
+Pmob_no numeric(10),
+primary key (Pid),
+)
+
+
+create table Centre
+(
+Cid varchar(6),
+Cname varchar(10),
+Ccity varchar(10),
+Did varchar(6),
+Mid varchar(10),
+primary key (Aid),
+foreign key (Did) references Doctor
+foreign key (Mid) references Machine
+)
+
+
+create table Doctor
+(
+Did varchar(6),
+Dname varchar(10),
+Dmob_no numeric (10),
+Dservices varchar(10),
+Dcost numeric(8),
+pimary key (Did),
+)
+
+
+create table Machine
+(
+Mid varchar(10),
+Mcentre varchar(10),
+Mservices varchar(10),
+Mcost numeric(8),
+primary key(Mid),
+)
+
+create table Admin
+(
+Login varchar(10),
+Password varchar(10),
+Cid varchar(6),
+)

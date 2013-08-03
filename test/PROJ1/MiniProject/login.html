@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<head>
+<title>:: CDC :: User Login</title>
+<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" type="text/css" href="master.css">
+</head>
+<body link = "white" vlink = "white" text = "white">
+<h1 style = "text-decoration:blink;">:: Clinical Diagnostic Center ::</h1>
+<font size = "4" face = "Times New Roman">
+
+|| &nbsp <a href="home.html"  style = "text-decoration:none;">   Home     </a> &nbsp ||
+ 
+&nbsp <a href="services.html"  style = "text-decoration:none;">   Our Services    </a> &nbsp ||
+
+&nbsp <a href="facilities.html" style = "text-decoration:none;">   Facilities   </a> &nbsp ||
+ 
+&nbsp <a href="appointment.html"  style = "text-decoration:none;">   Make Appointment    </a> &nbsp ||
+ 
+&nbsp <a href="login.html"  style = "text-decoration:none;">   Report    </a> &nbsp ||
+ 
+&nbsp  <a href="contactus.html"  style = "text-decoration:none;">   Contact Us   </a> &nbsp ||
+</font>
+<script language="javascript" type="text/javascript">
+var userFolder = "";
+var HTMLextention = ".htm";
+var inProgressMSG = "Attempting login...";
+var userFailMSG = "Invalid username or password";
+function login(){
+	var username= document.getElementById('username').value; 
+	var password= document.getElementById('password').value; 
+	username= username.toLowerCase();
+	password= password.toLowerCase();
+	var fullURL= "";
+	fullURL= userFolder + username + "~" + password + HTMLextention;
+	setTimeout("failEvents();", 3000);
+	document.getElementById('errorDisplay').value = inProgressMSG;
+	showMSG();
+	setTimeout("showMSG();", 5000);
+	verifWin.document.open();
+	verifWin.document.location.href = fullURL;
+	verifWin.document.close();
+}
+function passEvents(data){
+	var URL = data;
+	location.href=URL;
+}
+function failEvents(){
+	document.getElementById('errorDisplay').value = userFailMSG;
+	showMSG();
+}
+function showMSG() {
+	if ((document.getElementById("isShown_errorConsole").value)=="N") {
+	document.getElementById("errorConsole").style.display='';
+	document.getElementById("isShown_errorConsole").value="Y";}
+	else if ((document.getElementById("isShown_errorConsole").value)=="Y") {
+	document.getElementById("errorConsole").style.display='none';
+	document.getElementById("isShown_errorConsole").value="N";}
+}
+</script> <center>
+<br>
+<br><br><br>
+<table width="250" border="0" cellpadding="1" cellspacing="5" bgcolor="#9FB8FF">
+  <tr>
+    <td bgcolor="#9FB8FF" align="center"><b><font size="4" color="#FFFFFF">Authorization Required</font></b></td>
+  </tr>
+  <tr> 
+    <td bgcolor="#FFFFFF"><form action="javascript:login();" method="get" name="LoginScript" id="LoginScript">
+        <table border="0" cellspacing="10" cellpadding="0" width="100%">
+          <tr> 
+            <td><font size="2" color="#000000">Username: </font></td>
+            <td align="right"> <input name="username" id="username" type="text" style="border:1px solid #828177;" value="" /></td>
+          </tr>
+          <tr>
+            <td><font size="2" color="#000000"> Password:</font></td>
+            <td align="right"> <input name="password" id="password" type="password" style="border:1px solid #828177;" value="" /></td>
+          </tr>
+          <tr>
+            <td><iframe name="verifWin" src="" width="1" height="1" frameborder="0" border="0"></iframe></td>
+            <td align="right"><input name="submit" type="submit" style="border:1px solid #9FB8FF;color:#FFFFFF;background-color:#9FB8FF;" value="Login" /></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+    <tr>
+    <td bgcolor="#FFFFFF"><input type="hidden" id="isShown_errorConsole" value="Y" />
+	<span id="errorConsole" style="display:;">
+	<input type="button" id="errorDisplay" style="width:100%;background-color:#FFFFFF;border:0px;" value="Error: Please enable Javascript" />
+	</span><script language="javascript" type="text/javascript">showMSG();</script></td>
+  </tr>
+</table> </center>
+
+<center> <br><br><br><br><br><br><br><br><br>
+<table width="680" border="0" cellspacing="0" cellpadding="0" align="center">
+<tr align="left" valign="top"> 
+<td><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width="680" height="135">
+<param name=movie value="images/strip.swf">
+<param name=quality value=high>
+<param name="wmode" value="transparent">
+<embed src="images/strip.swf" quality=high pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" type="application/x-shockwave-flash" width="680" height="135" wmode="transparent">
+ </embed> 
+</object></td>
+</tr>
+</table>			
+</center>
+<p align = "right"> Site Designed and Created by Sajid, Sharvil and Prasad<br>
+Copyright &copy; 2011</p>
+</body>
+</html>
